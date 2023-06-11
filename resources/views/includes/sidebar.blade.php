@@ -5,7 +5,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Harapan Bangsa <sup></sup></div>
+                <div class="sidebar-brand-text mx-2">SD KEMUNING 1 <sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -36,7 +36,7 @@
                         <a class="collapse-item" href="{{route('user.index')}}">User</a>
                         <a class="collapse-item" href="{{route('agama.index')}}">Agama</a>
                         <a class="collapse-item" href="{{route('jenis_kelamin.index')}}">Jenis Kelamin</a>
-                        <a class="collapse-item" href="{{route('jurusan.index')}}">Jurusan</a>
+                        {{-- <a class="collapse-item" href="{{route('jurusan.index')}}">Jurusan</a> --}}
                         <a class="collapse-item" href="{{route('pekerjaan_ortu.index')}}">Pekerjaan Orang Tua</a>
                         <a class="collapse-item" href="{{route('penghasilan_ortu.index')}}">Penghasilan Orang tua</a>
                     </div>

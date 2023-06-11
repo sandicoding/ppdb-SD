@@ -101,8 +101,6 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Asal Sekolah</th>
-                                    <th>Jurusan</th>
                                     <th>Orang Tua</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -112,8 +110,6 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Asal Sekolah</th>
-                                    <th>Jurusan</th>
                                     <th>Orang Tua</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -125,8 +121,6 @@
                                 <tr>
                                     <td>{{$i}}</td>
                                     <td>{{$item->peserta->nama}}</td>
-                                    <td>{{$item->peserta->asal_sekolah}}</td>
-                                    <td>{{$item->peserta->jurusan->jurusan}}</td>
                                     <td>{{$item->peserta->nama_ortu}}</td>
                                     <td>
                                         @if ($item->status == 'MENUNGGU')

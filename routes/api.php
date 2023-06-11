@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\InformationController;
 */
 
 Route::get('information', [InformationController::class, 'all']);
+Route::get('registrations', [InformationController::class, 'registrations']);
 Route::post('registration', [RegistrationController::class, 'register']);
 
 

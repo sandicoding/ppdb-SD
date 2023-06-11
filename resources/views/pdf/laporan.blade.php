@@ -13,8 +13,6 @@
             <tr>
                 <th>No</th>
                 <th>Nama</th>
-                <th>Asal Sekolah</th>
-                <th>Jurusan</th>           
             </tr>
         </thead>
         <tbody>
@@ -24,8 +22,6 @@
             <tr>
                 <td>{{$i}}</td>
                 <td>{{$item->nama}}</td>
-                <td>{{$item->asal_sekolah}}</td>
-                <td>{{$item->jurusan->jurusan}}</td>
             </tr>
             <?php $i++; ?>
             @endforeach

@@ -17,20 +17,12 @@
                         <td>{{ $item->peserta->tempat_lahir }}, {{ $item->peserta->tanggal_lahir }}</td>
                     </tr>
                     <tr>
-                        <td>Asal Sekolah</td>
-                        <td>{{ $item->peserta->asal_sekolah }}</td>
-                    </tr>
-                    <tr>
                         <td>Alamat</td>
                         <td>{{ $item->peserta->alamat }}</td>
                     </tr>
                     <tr>
                         <td>No Telepon</td>
                         <td>{{ $item->peserta->no_telp }}</td>
-                    </tr>
-                    <tr>
-                        <td>Jurusan</td>
-                        <td>{{ $item->peserta->jurusan->jurusan }}</td>
                     </tr>
                     <tr>
                         <td>Agama</td>

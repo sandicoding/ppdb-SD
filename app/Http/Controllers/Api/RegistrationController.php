@@ -5,15 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Models\Agama;
-use App\Models\JenisKelamin;
-use App\Models\PenghasilanOrangtua;
-use App\Models\PekerjaanOrangtua;
-use App\Models\Jurusan;
-use App\Models\PesertaPPDB;
-use App\Models\BiodataOrtu;
-use App\Models\Hasil;
 use App\Helpers\ResponseFormatter;
+
+// Load Models
+use App\Models\PesertaPPDB;
+use App\Models\Hasil;
+use App\Models\BiodataOrtu;
 
 
 class RegistrationController extends Controller
@@ -43,7 +40,7 @@ class RegistrationController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator->errors());
+                return ResponseFormatter::error($validator->errors(), 'Check please input');
             }
 
             $data = [
@@ -65,9 +62,9 @@ class RegistrationController extends Controller
 
             if (!$daftar) {
                 DB::rollback();
-                return ResponseFormatter()->error([
+                return ResponseFormatter::error([
                     'message' => 'Please check your form again!'
-                ], 'Please check your form again!', 500);
+                ], 'Please check your form again!', 401);
             }
 
             $data2 = [
@@ -84,9 +81,9 @@ class RegistrationController extends Controller
             $ortu = BiodataOrtu::create($data2);
             if (!$ortu) {
                 DB::rollback();
-                return ResponseFormatter()->error([
+                return ResponseFormatter::error([
                     'message' => 'Please check your form again!'
-                ], 'Please check your form again!', 500);
+                ], 'Please check your form again!', 401);
             }
 
             $data3 = [
@@ -95,16 +92,19 @@ class RegistrationController extends Controller
 
             $hasil = Hasil::create($data3);
             if (!$hasil) {
-                DB::rollBack();
-                Alert::error('Error', 'Please check your form again!');
-                return redirect()->back();
+                DB::rollback();
+                return ResponseFormatter::error([
+                    'message' => 'Please check your form again!'
+                ], 'Please check your form again!', 401);
             }
 
+            $result = Hasil::with(['peserta.orang_tua'])->find($hasil->id);
+
             DB::commit();
-            Alert::success('Success', 'Thank you for register!');
-            return redirect()->route('landing-page');
+            return ResponseFormatter::success($result, 'Registration success', 200);
 
         } catch (Exception $error) {
+            DB::log($error);
             DB::rollBack();
             return ResponseFormatter::error([
                 'message' => 'Something went wrong',

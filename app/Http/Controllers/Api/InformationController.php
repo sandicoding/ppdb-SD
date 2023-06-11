@@ -40,5 +40,11 @@ class InformationController extends Controller
         ], 'Data berhasil diambil');
     }
 
+    public function registrations()
+    {
+        $items = Hasil::with(['peserta.orang_tua'])->get();
+        return ResponseFormatter::success($items, 'Data berhasil diambil');
+    }
+
 }
 

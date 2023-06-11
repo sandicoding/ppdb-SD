@@ -18,6 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.user-flow.home');
+        // Redirect route login
+        return redirect("login");
     }
 }

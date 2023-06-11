@@ -45,6 +45,5 @@ class InformationController extends Controller
         $items = Hasil::with(['peserta.orang_tua'])->get();
         return ResponseFormatter::success($items, 'Data berhasil diambil');
     }
-
 }
 

@@ -23,11 +23,9 @@ class RegistrationController extends Controller
             $validator = \Validator::make($request->all(), [
                 'id_jenis_kelamin' => 'required|exists:tbl_jenis_kelamin,id',
                 'id_agama' => 'required|exists:tbl_agama,id',
-                'id_jurusan' => 'required|exists:tbl_jurusan,id',
                 'nama' => 'required',
                 'tanggal_lahir' => 'date|before:yesterday',
                 'tempat_lahir' => 'required',
-                'asal_sekolah' => 'required',
                 'alamat' => 'required',
                 'no_telp' => 'required',
                 'nama_ayah' => 'required',
